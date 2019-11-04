@@ -140,7 +140,7 @@ querySsl(){
     cat combo_list | while read combo_set
     do
         echo -n "       $combo_set   "
-        expiry_date=$( echo | timeout $scan_timeout openssl s_client -showcerts -connect $combo_set 2>/dev/null | openssl x509 -inform pem -noout -enddate | cut -d "=" -f 2 )
+        expiry_date=$( echo | timeout $scan_timeout openssl s_client -showcerts -servername ${combo_set%:*} -connect $combo_set 2>/dev/null | openssl x509 -inform pem -noout -enddate | cut -d "=" -f 2 )
         echo -n " $expiry_date";
         expiry_epoch=$( date -d "$expiry_date" +%s )
         expiry_days="$(( ($expiry_epoch - $now_epoch) / (3600 * 24) ))"
