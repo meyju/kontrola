@@ -1,6 +1,6 @@
 # kontrola
 
-_/kɔnˈtrɔ.la/ - inspection (the act of examining something, often closely) [Polish]_ (<a href="https://commons.wikimedia.org/wiki/File:Pl-kontrola.ogg?embedplayer=yes">audio</a>) 
+_/kɔnˈtrɔ.la/ - inspection (the act of examining something, often closely) [Polish]_ (<a href="https://commons.wikimedia.org/wiki/File:Pl-kontrola.ogg?embedplayer=yes">audio</a>)
 
 A script that uses nmap to sweep a subnet looking for ports with SSL certs, then querying those certs to discover upcoming expiration dates. Besides discovery, it can also do more traditional tracking using a host based file that you provide. See usage for an example configuration.
 
@@ -40,21 +40,27 @@ cd kontrola
 ./kontrola
 ```
 
+to run with an other list, use:
+
+```
+static_file="domains.txt.project_name" ./kontrola
+```
+
 Check the `html/` directory for the output report
 
 ### Portscan mode
 
 * Run the script, with discovery turned on
-* By default it will seach the `/32` of the subnet the host is running on 
+* By default it will seach the `/32` of the subnet the host is running on
 
 ```
-discovery="yes" ./kontrola 
+discovery="yes" ./kontrola
 ```
 
 * Optionally you can list a subnet target for it to sweep
 
 ```
-discovery="yes" discovery_subnet="10.10.0.0/32" ./kontrola 
+discovery="yes" discovery_subnet="10.10.0.0/32" ./kontrola
 ```
 
 ## Todo

@@ -24,7 +24,7 @@
 
 ###### Variables to define ######
 # use static list (DEFAULT) instead of discovering hosts on a subnet
-static_file="domains.txt"
+static_file="${static_file:-domains.txt}"
 
 # run discovery over a subnet to find live hosts to check
 #discovery="no"
